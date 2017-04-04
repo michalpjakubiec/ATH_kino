@@ -14,24 +14,13 @@ namespace ATH_kino
 {
     public partial class Form1 : Form
     {
+
+        Form2 f2 = new Form2();
+
         public Form1()
         {
             InitializeComponent();
 
-        }
-
-        private void comboBoxFilmsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            using (var ctx = new ATH_kinoEntities())
-            {
-                string selected = comboBoxFilmsList.SelectedItem.ToString();
-                labelName.Text = selected;
-               // labelDirector.Text =
-            }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
             using (var ctx = new ATH_kinoEntities())
             {
                 var data = ctx.Film;
@@ -42,6 +31,26 @@ namespace ATH_kino
                 }
             }
         }
+
+        private void comboBoxFilmsList_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            using (var ctx = new ATH_kinoEntities())
+            {
+                string currentItem = comboBoxFilmsList.SelectedItem.ToString();
+                //var q = from Film in ATH_kino
+                //        where Film.Nazwa == currentItem
+                //        select Film.Rezyser;
+                MessageBox.Show("Not implemented yet.");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            f2.ShowDialog(this);
+        }
+
+
     }
 }
+
 
