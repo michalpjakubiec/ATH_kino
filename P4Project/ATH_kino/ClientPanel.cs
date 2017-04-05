@@ -12,12 +12,14 @@ using System.Data.Entity.Infrastructure;
 
 namespace ATH_kino
 {
-    public partial class Form1 : Form
+    // statystyki
+    // wykresy
+    public partial class ClientPanel : Form
     {
 
         Form2 f2 = new Form2();
 
-        public Form1()
+        public ClientPanel()
         {
             InitializeComponent();
 
@@ -37,10 +39,15 @@ namespace ATH_kino
             using (var ctx = new ATH_kinoEntities())
             {
                 string currentItem = comboBoxFilmsList.SelectedItem.ToString();
-                //var q = from Film in ATH_kino
-                //        where Film.Nazwa == currentItem
-                //        select Film.Rezyser;
-                MessageBox.Show("Not implemented yet.");
+
+                var q = (from Film in ctx.Film
+                         where Film.Nazwa == currentItem
+                         select Film.Rezyser).ToArray();
+
+                foreach (var item in q)
+                {
+                    richTextBox1.Text = item.ToString();
+                }
             }
         }
 
@@ -48,8 +55,6 @@ namespace ATH_kino
         {
             f2.ShowDialog(this);
         }
-
-
     }
 }
 
