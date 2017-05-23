@@ -12,7 +12,7 @@ namespace ATH_kino
 {
     public partial class LoginPanel : Form
     {
-        ClientPanel clientPanel = new ClientPanel();
+        clientPanel clientPanel = new clientPanel();
 
         public LoginPanel()
         {
