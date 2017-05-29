@@ -43,5 +43,6 @@ namespace ATH_kino
         public virtual ICollection<Rola> Rola { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Seans> Seans { get; set; }
+        public virtual Okladka Okladka { get; set; }
     }
 }

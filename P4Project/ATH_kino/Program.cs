@@ -16,7 +16,8 @@ namespace ATH_kino
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new clientPanel());
+            Application.Run(new ClientPanel());
+            //Application.Run(new RoomPreview());
         }
     }
 }

@@ -1,51 +1,58 @@
 ﻿namespace ATH_kino
 {
-    partial class clientPanel
-{
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
-
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
+    partial class ClientPanel
     {
-        if (disposing && (components != null))
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            components.Dispose();
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
-        base.Dispose(disposing);
-    }
 
-    #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientPanel));
             this.comboBoxFilmsList = new System.Windows.Forms.ComboBox();
             this.groupBoxFilmInfo = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.labelFilmList = new System.Windows.Forms.Label();
             this.groupBoxFilmDetails = new System.Windows.Forms.GroupBox();
-            this.labelStars = new System.Windows.Forms.Label();
-            this.labelPremierePol = new System.Windows.Forms.Label();
+            this.labelActor = new System.Windows.Forms.Label();
+            this.labelPremiere = new System.Windows.Forms.Label();
             this.labelCountry = new System.Windows.Forms.Label();
             this.labelWriter = new System.Windows.Forms.Label();
             this.labelDirector = new System.Windows.Forms.Label();
+            this.labelGenre = new System.Windows.Forms.Label();
             this.labelFilmName = new System.Windows.Forms.Label();
-            this.labelStarsSolid = new System.Windows.Forms.Label();
-            this.labelPremierePolSolid = new System.Windows.Forms.Label();
+            this.labelActorSolid = new System.Windows.Forms.Label();
+            this.labelPremiereSolid = new System.Windows.Forms.Label();
             this.labelCountrySolid = new System.Windows.Forms.Label();
             this.labelWriterSolid = new System.Windows.Forms.Label();
             this.labelDirectorSolid = new System.Windows.Forms.Label();
+            this.labelGenreSolid = new System.Windows.Forms.Label();
             this.labelFilmNameSolid = new System.Windows.Forms.Label();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
+            this.buttonRoomPreview = new System.Windows.Forms.Button();
+            this.comboBoxDateSelection = new System.Windows.Forms.ComboBox();
+            this.comboBoxTimeSelection = new System.Windows.Forms.ComboBox();
+            this.labelDateSelection = new System.Windows.Forms.Label();
+            this.labelTimeSelection = new System.Windows.Forms.Label();
             this.groupBoxFilmInfo.SuspendLayout();
             this.groupBoxFilmDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
@@ -55,165 +62,171 @@
             // 
             this.comboBoxFilmsList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.comboBoxFilmsList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxFilmsList.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxFilmsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFilmsList.FormattingEnabled = true;
-            this.comboBoxFilmsList.Location = new System.Drawing.Point(212, 19);
+            this.comboBoxFilmsList.Items.AddRange(new object[] {
+            ""});
+            this.comboBoxFilmsList.Location = new System.Drawing.Point(212, 41);
             this.comboBoxFilmsList.Name = "comboBoxFilmsList";
-            this.comboBoxFilmsList.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxFilmsList.Size = new System.Drawing.Size(321, 21);
             this.comboBoxFilmsList.Sorted = true;
-            this.comboBoxFilmsList.TabIndex = 3;
-            this.comboBoxFilmsList.Text = "Wybierz film...";
+            this.comboBoxFilmsList.TabIndex = 1;
             this.comboBoxFilmsList.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilmsList_SelectedIndexChanged);
             // 
             // groupBoxFilmInfo
             // 
-            this.groupBoxFilmInfo.Controls.Add(this.richTextBox1);
-            this.groupBoxFilmInfo.Controls.Add(this.button2);
+            this.groupBoxFilmInfo.Controls.Add(this.labelFilmList);
             this.groupBoxFilmInfo.Controls.Add(this.groupBoxFilmDetails);
             this.groupBoxFilmInfo.Controls.Add(this.comboBoxFilmsList);
             this.groupBoxFilmInfo.Controls.Add(this.pictureBoxCover);
             this.groupBoxFilmInfo.Location = new System.Drawing.Point(10, 10);
             this.groupBoxFilmInfo.Name = "groupBoxFilmInfo";
-            this.groupBoxFilmInfo.Size = new System.Drawing.Size(420, 327);
-            this.groupBoxFilmInfo.TabIndex = 0;
+            this.groupBoxFilmInfo.Size = new System.Drawing.Size(539, 327);
+            this.groupBoxFilmInfo.TabIndex = 5;
             this.groupBoxFilmInfo.TabStop = false;
             this.groupBoxFilmInfo.Text = "Informacje o filmie";
             // 
-            // richTextBox1
+            // labelFilmList
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(213, 247);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(199, 72);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(212, 217);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Pokaż seanse";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelFilmList.AutoSize = true;
+            this.labelFilmList.Location = new System.Drawing.Point(209, 19);
+            this.labelFilmList.Name = "labelFilmList";
+            this.labelFilmList.Size = new System.Drawing.Size(66, 13);
+            this.labelFilmList.TabIndex = 0;
+            this.labelFilmList.Text = "Wybierz film:";
             // 
             // groupBoxFilmDetails
             // 
-            this.groupBoxFilmDetails.Controls.Add(this.labelStars);
-            this.groupBoxFilmDetails.Controls.Add(this.labelPremierePol);
+            this.groupBoxFilmDetails.Controls.Add(this.labelActor);
+            this.groupBoxFilmDetails.Controls.Add(this.labelPremiere);
             this.groupBoxFilmDetails.Controls.Add(this.labelCountry);
             this.groupBoxFilmDetails.Controls.Add(this.labelWriter);
             this.groupBoxFilmDetails.Controls.Add(this.labelDirector);
+            this.groupBoxFilmDetails.Controls.Add(this.labelGenre);
             this.groupBoxFilmDetails.Controls.Add(this.labelFilmName);
-            this.groupBoxFilmDetails.Controls.Add(this.labelStarsSolid);
-            this.groupBoxFilmDetails.Controls.Add(this.labelPremierePolSolid);
+            this.groupBoxFilmDetails.Controls.Add(this.labelActorSolid);
+            this.groupBoxFilmDetails.Controls.Add(this.labelPremiereSolid);
             this.groupBoxFilmDetails.Controls.Add(this.labelCountrySolid);
             this.groupBoxFilmDetails.Controls.Add(this.labelWriterSolid);
             this.groupBoxFilmDetails.Controls.Add(this.labelDirectorSolid);
+            this.groupBoxFilmDetails.Controls.Add(this.labelGenreSolid);
             this.groupBoxFilmDetails.Controls.Add(this.labelFilmNameSolid);
-            this.groupBoxFilmDetails.Location = new System.Drawing.Point(212, 46);
+            this.groupBoxFilmDetails.Location = new System.Drawing.Point(212, 68);
             this.groupBoxFilmDetails.Name = "groupBoxFilmDetails";
-            this.groupBoxFilmDetails.Size = new System.Drawing.Size(200, 165);
-            this.groupBoxFilmDetails.TabIndex = 6;
+            this.groupBoxFilmDetails.Size = new System.Drawing.Size(321, 251);
+            this.groupBoxFilmDetails.TabIndex = 1;
             this.groupBoxFilmDetails.TabStop = false;
             // 
-            // labelStars
+            // labelActor
             // 
-            this.labelStars.AutoSize = true;
-            this.labelStars.Location = new System.Drawing.Point(79, 103);
-            this.labelStars.Name = "labelStars";
-            this.labelStars.Size = new System.Drawing.Size(34, 13);
-            this.labelStars.TabIndex = 5;
-            this.labelStars.Text = "(brak)";
+            this.labelActor.AutoSize = true;
+            this.labelActor.Location = new System.Drawing.Point(79, 121);
+            this.labelActor.Name = "labelActor";
+            this.labelActor.Size = new System.Drawing.Size(0, 13);
+            this.labelActor.TabIndex = 0;
             // 
-            // labelPremierePol
+            // labelPremiere
             // 
-            this.labelPremierePol.AutoSize = true;
-            this.labelPremierePol.Location = new System.Drawing.Point(79, 85);
-            this.labelPremierePol.Name = "labelPremierePol";
-            this.labelPremierePol.Size = new System.Drawing.Size(34, 13);
-            this.labelPremierePol.TabIndex = 5;
-            this.labelPremierePol.Text = "(brak)";
+            this.labelPremiere.AutoSize = true;
+            this.labelPremiere.Location = new System.Drawing.Point(79, 103);
+            this.labelPremiere.Name = "labelPremiere";
+            this.labelPremiere.Size = new System.Drawing.Size(0, 13);
+            this.labelPremiere.TabIndex = 1;
             // 
             // labelCountry
             // 
             this.labelCountry.AutoSize = true;
-            this.labelCountry.Location = new System.Drawing.Point(79, 67);
+            this.labelCountry.Location = new System.Drawing.Point(79, 85);
             this.labelCountry.Name = "labelCountry";
-            this.labelCountry.Size = new System.Drawing.Size(34, 13);
-            this.labelCountry.TabIndex = 5;
-            this.labelCountry.Text = "(brak)";
+            this.labelCountry.Size = new System.Drawing.Size(0, 13);
+            this.labelCountry.TabIndex = 2;
             // 
             // labelWriter
             // 
             this.labelWriter.AutoSize = true;
-            this.labelWriter.Location = new System.Drawing.Point(79, 49);
+            this.labelWriter.Location = new System.Drawing.Point(79, 67);
             this.labelWriter.Name = "labelWriter";
-            this.labelWriter.Size = new System.Drawing.Size(34, 13);
-            this.labelWriter.TabIndex = 5;
-            this.labelWriter.Text = "(brak)";
+            this.labelWriter.Size = new System.Drawing.Size(0, 13);
+            this.labelWriter.TabIndex = 3;
             // 
             // labelDirector
             // 
             this.labelDirector.AutoSize = true;
-            this.labelDirector.Location = new System.Drawing.Point(79, 31);
+            this.labelDirector.Location = new System.Drawing.Point(79, 49);
             this.labelDirector.Name = "labelDirector";
-            this.labelDirector.Size = new System.Drawing.Size(34, 13);
-            this.labelDirector.TabIndex = 5;
-            this.labelDirector.Text = "(brak)";
+            this.labelDirector.Size = new System.Drawing.Size(0, 13);
+            this.labelDirector.TabIndex = 4;
+            // 
+            // labelGenre
+            // 
+            this.labelGenre.AutoSize = true;
+            this.labelGenre.Location = new System.Drawing.Point(79, 31);
+            this.labelGenre.Name = "labelGenre";
+            this.labelGenre.Size = new System.Drawing.Size(0, 13);
+            this.labelGenre.TabIndex = 5;
             // 
             // labelFilmName
             // 
             this.labelFilmName.AutoSize = true;
             this.labelFilmName.Location = new System.Drawing.Point(79, 13);
             this.labelFilmName.Name = "labelFilmName";
-            this.labelFilmName.Size = new System.Drawing.Size(34, 13);
-            this.labelFilmName.TabIndex = 5;
-            this.labelFilmName.Text = "(brak)";
+            this.labelFilmName.Size = new System.Drawing.Size(0, 13);
+            this.labelFilmName.TabIndex = 6;
             // 
-            // labelStarsSolid
+            // labelActorSolid
             // 
-            this.labelStarsSolid.AutoSize = true;
-            this.labelStarsSolid.Location = new System.Drawing.Point(6, 103);
-            this.labelStarsSolid.Name = "labelStarsSolid";
-            this.labelStarsSolid.Size = new System.Drawing.Size(60, 13);
-            this.labelStarsSolid.TabIndex = 5;
-            this.labelStarsSolid.Text = "Występują:";
+            this.labelActorSolid.AutoSize = true;
+            this.labelActorSolid.Location = new System.Drawing.Point(6, 121);
+            this.labelActorSolid.Name = "labelActorSolid";
+            this.labelActorSolid.Size = new System.Drawing.Size(60, 13);
+            this.labelActorSolid.TabIndex = 7;
+            this.labelActorSolid.Text = "Występują:";
             // 
-            // labelPremierePolSolid
+            // labelPremiereSolid
             // 
-            this.labelPremierePolSolid.AutoSize = true;
-            this.labelPremierePolSolid.Location = new System.Drawing.Point(6, 85);
-            this.labelPremierePolSolid.Name = "labelPremierePolSolid";
-            this.labelPremierePolSolid.Size = new System.Drawing.Size(75, 13);
-            this.labelPremierePolSolid.TabIndex = 5;
-            this.labelPremierePolSolid.Text = "Data premiery:";
+            this.labelPremiereSolid.AutoSize = true;
+            this.labelPremiereSolid.Location = new System.Drawing.Point(6, 103);
+            this.labelPremiereSolid.Name = "labelPremiereSolid";
+            this.labelPremiereSolid.Size = new System.Drawing.Size(75, 13);
+            this.labelPremiereSolid.TabIndex = 8;
+            this.labelPremiereSolid.Text = "Data premiery:";
             // 
             // labelCountrySolid
             // 
             this.labelCountrySolid.AutoSize = true;
-            this.labelCountrySolid.Location = new System.Drawing.Point(6, 67);
+            this.labelCountrySolid.Location = new System.Drawing.Point(6, 84);
             this.labelCountrySolid.Name = "labelCountrySolid";
             this.labelCountrySolid.Size = new System.Drawing.Size(58, 13);
-            this.labelCountrySolid.TabIndex = 5;
+            this.labelCountrySolid.TabIndex = 9;
             this.labelCountrySolid.Text = "Produkcja:";
             // 
             // labelWriterSolid
             // 
             this.labelWriterSolid.AutoSize = true;
-            this.labelWriterSolid.Location = new System.Drawing.Point(6, 49);
+            this.labelWriterSolid.Location = new System.Drawing.Point(6, 67);
             this.labelWriterSolid.Name = "labelWriterSolid";
             this.labelWriterSolid.Size = new System.Drawing.Size(68, 13);
-            this.labelWriterSolid.TabIndex = 5;
+            this.labelWriterSolid.TabIndex = 10;
             this.labelWriterSolid.Text = "Scenarzysta:";
             // 
             // labelDirectorSolid
             // 
             this.labelDirectorSolid.AutoSize = true;
-            this.labelDirectorSolid.Location = new System.Drawing.Point(6, 31);
+            this.labelDirectorSolid.Location = new System.Drawing.Point(6, 49);
             this.labelDirectorSolid.Name = "labelDirectorSolid";
             this.labelDirectorSolid.Size = new System.Drawing.Size(48, 13);
-            this.labelDirectorSolid.TabIndex = 5;
+            this.labelDirectorSolid.TabIndex = 11;
             this.labelDirectorSolid.Text = "Reżyser:";
+            // 
+            // labelGenreSolid
+            // 
+            this.labelGenreSolid.AutoSize = true;
+            this.labelGenreSolid.Location = new System.Drawing.Point(6, 31);
+            this.labelGenreSolid.Name = "labelGenreSolid";
+            this.labelGenreSolid.Size = new System.Drawing.Size(51, 13);
+            this.labelGenreSolid.TabIndex = 12;
+            this.labelGenreSolid.Text = "Gatunek:";
             // 
             // labelFilmNameSolid
             // 
@@ -221,56 +234,133 @@
             this.labelFilmNameSolid.Location = new System.Drawing.Point(6, 13);
             this.labelFilmNameSolid.Name = "labelFilmNameSolid";
             this.labelFilmNameSolid.Size = new System.Drawing.Size(43, 13);
-            this.labelFilmNameSolid.TabIndex = 5;
+            this.labelFilmNameSolid.TabIndex = 13;
             this.labelFilmNameSolid.Text = "Nazwa:";
             // 
             // pictureBoxCover
             // 
-            this.pictureBoxCover.Image = global::ATH_kino.Properties.Resources.blank1;
+            this.pictureBoxCover.ErrorImage = null;
+            this.pictureBoxCover.InitialImage = null;
             this.pictureBoxCover.Location = new System.Drawing.Point(6, 19);
             this.pictureBoxCover.Name = "pictureBoxCover";
             this.pictureBoxCover.Size = new System.Drawing.Size(200, 300);
-            this.pictureBoxCover.TabIndex = 1;
+            this.pictureBoxCover.TabIndex = 2;
             this.pictureBoxCover.TabStop = false;
             // 
-            // clientPanel
+            // buttonRoomPreview
+            // 
+            this.buttonRoomPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.buttonRoomPreview.Enabled = false;
+            this.buttonRoomPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRoomPreview.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonRoomPreview.Location = new System.Drawing.Point(10, 393);
+            this.buttonRoomPreview.Name = "buttonRoomPreview";
+            this.buttonRoomPreview.Size = new System.Drawing.Size(539, 34);
+            this.buttonRoomPreview.TabIndex = 4;
+            this.buttonRoomPreview.Text = "Podgląd sali";
+            this.buttonRoomPreview.UseVisualStyleBackColor = false;
+            this.buttonRoomPreview.Click += new System.EventHandler(this.buttonRoomPreview_Click);
+            // 
+            // comboBoxDateSelection
+            // 
+            this.comboBoxDateSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDateSelection.Enabled = false;
+            this.comboBoxDateSelection.FormatString = "dd.MM.yyy, dddd";
+            this.comboBoxDateSelection.FormattingEnabled = true;
+            this.comboBoxDateSelection.Items.AddRange(new object[] {
+            ""});
+            this.comboBoxDateSelection.Location = new System.Drawing.Point(10, 361);
+            this.comboBoxDateSelection.Name = "comboBoxDateSelection";
+            this.comboBoxDateSelection.Size = new System.Drawing.Size(266, 21);
+            this.comboBoxDateSelection.Sorted = true;
+            this.comboBoxDateSelection.TabIndex = 2;
+            this.comboBoxDateSelection.SelectedIndexChanged += new System.EventHandler(this.comboBoxDateSelection_SelectedIndexChanged);
+            // 
+            // comboBoxTimeSelection
+            // 
+            this.comboBoxTimeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTimeSelection.Enabled = false;
+            this.comboBoxTimeSelection.FormatString = "HH:mm";
+            this.comboBoxTimeSelection.FormattingEnabled = true;
+            this.comboBoxTimeSelection.Location = new System.Drawing.Point(283, 361);
+            this.comboBoxTimeSelection.Name = "comboBoxTimeSelection";
+            this.comboBoxTimeSelection.Size = new System.Drawing.Size(266, 21);
+            this.comboBoxTimeSelection.Sorted = true;
+            this.comboBoxTimeSelection.TabIndex = 3;
+            this.comboBoxTimeSelection.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimeSelection_SelectedIndexChanged);
+            // 
+            // labelDateSelection
+            // 
+            this.labelDateSelection.AutoSize = true;
+            this.labelDateSelection.Location = new System.Drawing.Point(7, 340);
+            this.labelDateSelection.Name = "labelDateSelection";
+            this.labelDateSelection.Size = new System.Drawing.Size(109, 13);
+            this.labelDateSelection.TabIndex = 1;
+            this.labelDateSelection.Text = "Wybierz datę seansu:";
+            // 
+            // labelTimeSelection
+            // 
+            this.labelTimeSelection.AutoSize = true;
+            this.labelTimeSelection.Location = new System.Drawing.Point(280, 340);
+            this.labelTimeSelection.Name = "labelTimeSelection";
+            this.labelTimeSelection.Size = new System.Drawing.Size(125, 13);
+            this.labelTimeSelection.TabIndex = 0;
+            this.labelTimeSelection.Text = "Wybierz godzinę seansu:";
+            // 
+            // ClientPanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(435, 343);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(561, 437);
+            this.Controls.Add(this.labelTimeSelection);
+            this.Controls.Add(this.labelDateSelection);
+            this.Controls.Add(this.buttonRoomPreview);
+            this.Controls.Add(this.comboBoxTimeSelection);
+            this.Controls.Add(this.comboBoxDateSelection);
             this.Controls.Add(this.groupBoxFilmInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "clientPanel";
+            this.Name = "ClientPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel klienta";
+            this.Load += new System.EventHandler(this.ClientPanel_Load);
             this.groupBoxFilmInfo.ResumeLayout(false);
+            this.groupBoxFilmInfo.PerformLayout();
             this.groupBoxFilmDetails.ResumeLayout(false);
             this.groupBoxFilmDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
-    }
+        }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.PictureBox pictureBoxCover;
-    private System.Windows.Forms.GroupBox groupBoxFilmInfo;
-    private System.Windows.Forms.GroupBox groupBoxFilmDetails;
-    private System.Windows.Forms.Label labelFilmNameSolid;
-    private System.Windows.Forms.Label labelFilmName;
-    private System.Windows.Forms.Label labelDirectorSolid;
-    private System.Windows.Forms.Label labelDirector;
-    private System.Windows.Forms.Label labelWriterSolid;
-        private System.Windows.Forms.Label labelStarsSolid;
-        private System.Windows.Forms.Label labelPremierePolSolid;
-        private System.Windows.Forms.Label labelCountrySolid;
-        private System.Windows.Forms.Label labelStars;
-        private System.Windows.Forms.Label labelPremierePol;
+        private System.Windows.Forms.PictureBox pictureBoxCover;
+        private System.Windows.Forms.GroupBox groupBoxFilmInfo;
+        private System.Windows.Forms.Button buttonRoomPreview;
+        private System.Windows.Forms.ComboBox comboBoxFilmsList;
+        private System.Windows.Forms.GroupBox groupBoxFilmDetails;
+        private System.Windows.Forms.Label labelActor;
+        private System.Windows.Forms.Label labelPremiere;
         private System.Windows.Forms.Label labelCountry;
         private System.Windows.Forms.Label labelWriter;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ComboBox comboBoxFilmsList;
+        private System.Windows.Forms.Label labelDirector;
+        private System.Windows.Forms.Label labelGenre;
+        private System.Windows.Forms.Label labelFilmName;
+        private System.Windows.Forms.Label labelActorSolid;
+        private System.Windows.Forms.Label labelPremiereSolid;
+        private System.Windows.Forms.Label labelCountrySolid;
+        private System.Windows.Forms.Label labelWriterSolid;
+        private System.Windows.Forms.Label labelDirectorSolid;
+        private System.Windows.Forms.Label labelGenreSolid;
+        private System.Windows.Forms.Label labelFilmNameSolid;
+        private System.Windows.Forms.ComboBox comboBoxDateSelection;
+        private System.Windows.Forms.ComboBox comboBoxTimeSelection;
+        private System.Windows.Forms.Label labelFilmList;
+        private System.Windows.Forms.Label labelDateSelection;
+        private System.Windows.Forms.Label labelTimeSelection;
     }
 }
 

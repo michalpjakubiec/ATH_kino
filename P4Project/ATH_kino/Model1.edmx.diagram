@@ -7,17 +7,17 @@
       <Diagram DiagramId="ed4bb55f95ec45bbac5ba93e8a5856b7" Name="Diagram1">
         <EntityTypeShape EntityType="ATH_kinoModel.Aktor" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ATH_kinoModel.Faktura" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATH_kinoModel.Film" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATH_kinoModel.Gatunek" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Film" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Gatunek" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ATH_kinoModel.GatunekSzczegoly" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATH_kinoModel.Klient" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATH_kinoModel.Rezerwacja" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Klient" Width="1.5" PointX="7.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Rezerwacja" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ATH_kinoModel.Rezyser" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ATH_kinoModel.RodzajKosztow" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ATH_kinoModel.Rola" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATH_kinoModel.Sala" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Sala" Width="1.5" PointX="3.125" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ATH_kinoModel.Scenarzysta" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ATH_kinoModel.Seans" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Seans" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
         <AssociationConnector Association="ATH_kinoModel.FK_Rola_Aktor1" ManuallyRouted="false" />
         <AssociationConnector Association="ATH_kinoModel.FK_Faktura_RodzajKosztow" ManuallyRouted="false" />
         <AssociationConnector Association="ATH_kinoModel.FK_Film_Rezyser" ManuallyRouted="false" />
@@ -29,6 +29,8 @@
         <AssociationConnector Association="ATH_kinoModel.FK_Rezerwacja_Klient" ManuallyRouted="false" />
         <AssociationConnector Association="ATH_kinoModel.FK_Rezerwacja_Seans" ManuallyRouted="false" />
         <AssociationConnector Association="ATH_kinoModel.FK_Seans_Sala" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ATH_kinoModel.Okladka" Width="1.5" PointX="0.625" PointY="8.375" />
+        <AssociationConnector Association="ATH_kinoModel.FK_Okladka_Film" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

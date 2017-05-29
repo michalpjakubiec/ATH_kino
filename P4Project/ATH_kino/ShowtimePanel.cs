@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ATH_kino
 {
-    public partial class Form2 : Form
+    public partial class ShowtimePanel : Form
     {
-        public Form2()
+        public ShowtimePanel()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

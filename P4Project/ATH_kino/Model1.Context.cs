@@ -38,5 +38,6 @@ namespace ATH_kino
         public virtual DbSet<Sala> Sala { get; set; }
         public virtual DbSet<Scenarzysta> Scenarzysta { get; set; }
         public virtual DbSet<Seans> Seans { get; set; }
+        public virtual DbSet<Okladka> Okladka { get; set; }
     }
 }
