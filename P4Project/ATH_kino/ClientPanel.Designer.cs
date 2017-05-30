@@ -257,7 +257,7 @@
             this.buttonRoomPreview.Name = "buttonRoomPreview";
             this.buttonRoomPreview.Size = new System.Drawing.Size(539, 34);
             this.buttonRoomPreview.TabIndex = 4;
-            this.buttonRoomPreview.Text = "Podgląd sali";
+            this.buttonRoomPreview.Text = "Rezerwuj bilet";
             this.buttonRoomPreview.UseVisualStyleBackColor = false;
             this.buttonRoomPreview.Click += new System.EventHandler(this.buttonRoomPreview_Click);
             // 
@@ -309,6 +309,7 @@
             // 
             // ClientPanel
             // 
+            this.AcceptButton = this.buttonRoomPreview;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(561, 437);

@@ -12,81 +12,129 @@ namespace ATH_kino
 {
     public partial class RoomPreview : Form
     {
-        public List<Button> seatList { get; set; } = new List<Button>();
-        public RoomPreview(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
+        public List<Button> SeatList { get; set; } = new List<Button>();
+        public int Counter { get; set; }
+        public int ReturnedChoice { get; set; }
+        private void FillLabels(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
         {
-            InitializeComponent();
-
             using (var ctx = new ATH_kinoEntities())
             {
                 var roomInfo = (from f in ctx.Film
                                 join s in ctx.Seans on f.ID_Film equals s.ID_Film
                                 join r in ctx.Sala on s.ID_Sala equals r.ID_Sala
-                                where (s.Data == showtimeDate &&
+                                where (f.Nazwa == filmName &&
+                                       s.Data == showtimeDate &&
                                        s.Godzina == showtimeTime)
                                 select new
                                 {
                                     roomNumber = s.ID_Sala
-                                });
+                                }).FirstOrDefault();
 
+                labelFilmName.Text = filmName;
                 labelDate.Text = showtimeDate.ToString("dd.MM.yyyy");
-                labelTime.Text = showtimeTime.ToString("HH:mm");
-                labelRoomNumber.Text = roomInfo.ToString();
+                labelTime.Text = showtimeTime.ToString(@"hh\:mm");
+                labelRoomNumber.Text = roomInfo.roomNumber.ToString();
+            }
+        }
+        private void CreateDynamicRoomPreview(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
+        {
+            var column = 10;
+            var row = 5;
 
-                    var seatsInfo = (from f in ctx.Film
-                                     join s in ctx.Seans on f.ID_Film equals s.ID_Film
-                                     join re in ctx.Rezerwacja on s.ID_Seans equals re.ID_Seans
-                                     where (f.Nazwa == filmName && s.Data == showtimeDate && s.Godzina == showtimeTime)
-                                     select new
-                                     {
-                                         SeatNumber = re.Miejsce
-                                     }).ToList();
+            tableLayoutPanelRoomPreview.ColumnCount = 10;
+            tableLayoutPanelRoomPreview.RowCount = 5;
 
-                var rowCount = 5;
-                var columnCount = 10;
+            tableLayoutPanelRoomPreview.ColumnStyles.Clear();
+            tableLayoutPanelRoomPreview.RowStyles.Clear();
 
-                tableLayoutPanelRoomPreview.ColumnCount = columnCount;
-                tableLayoutPanelRoomPreview.RowCount = rowCount;
+            for (int i = 0; i < column; i++)
+                tableLayoutPanelRoomPreview.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50));
 
-                tableLayoutPanelRoomPreview.ColumnStyles.Clear();
-                tableLayoutPanelRoomPreview.RowStyles.Clear();
+            for (int i = 0; i < row; i++)
+                tableLayoutPanelRoomPreview.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
+            using (var ctx = new ATH_kinoEntities())
+            {
+                var seatInfo = (from f in ctx.Film
+                                join s in ctx.Seans on f.ID_Film equals s.ID_Film
+                                join re in ctx.Rezerwacja on s.ID_Seans equals re.ID_Seans
+                                where (f.Nazwa == filmName &&
+                                       s.Data == showtimeDate &&
+                                       s.Godzina == showtimeTime)
+                                select re.Miejsce);
 
-                for (int i = 0; i < columnCount; i++)
-                {
-                    tableLayoutPanelRoomPreview.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50));
-                }
-
-                for (int i = 0; i < rowCount; i++)
-                {
-                    tableLayoutPanelRoomPreview.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50));
-                }
-
-                for (int i = 0; i < rowCount * columnCount; i++)
+                for (int i = 0; i < column * row; i++)
                 {
                     var seat = new Button();
                     seat.Text = (i + 1).ToString();
-                    seat.Tag = "1";
-                    seat.Name = string.Format("b_{0}", i + 1);
-                    seat.Click += b_Click;
-                    seat.Size = new System.Drawing.Size(50, 50);
+                    seat.Name = $"{i + 1}";
+                    seat.Size = new Size(50, 50);
+                    seat.FlatStyle = FlatStyle.Flat;
+                    seat.BackColor = Color.LightGray;
+                    seat.Click += seat_Click;
                     tableLayoutPanelRoomPreview.Controls.Add(seat);
-                    seatList.Add(seat);
-                }
-                foreach (var seat in seatList)
-                {
-                    if (seat.Tag == "1")
+                    SeatList.Add(seat);
+
+                    foreach (var item in seatInfo)
                     {
-                        seat.BackColor = Color.Red;
+                        if (seat.Name == item.ToString())
+                        {
+                            seat.Enabled = false;
+                            seat.BackColor = Color.DarkRed;
+                            seat.ForeColor = Color.White;
+                        }
                     }
                 }
             }
         }
-
-        void b_Click(object sender, EventArgs e)
+        public RoomPreview(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
         {
-            var b = sender as Button;
-            if (b != null)
-                MessageBox.Show(string.Format("{0} Clicked", b.Text));
+            InitializeComponent();
+            FillLabels(filmName, showtimeDate, showtimeTime);
+            CreateDynamicRoomPreview(filmName, showtimeDate, showtimeTime);
+        }
+
+        void seat_Click(object sender, EventArgs e)
+        {
+            Button seat = (Button)sender;
+
+            if (seat.BackColor == Color.Orange)
+            {
+                seat.BackColor = Color.LightGray;
+                Counter -= 1;
+            }
+            else
+            {
+                var formTicketTypeSelector = new TicketTypeSelector();
+                formTicketTypeSelector.ShowDialog();
+
+                if (formTicketTypeSelector.returnChoice >= 1 && formTicketTypeSelector.returnChoice <= 4)
+                {
+                    seat.BackColor = Color.Orange;
+                    Counter += 1;
+                }
+            }
+
+            if (Counter == 0)
+                buttonOK.Enabled = false;
+            else
+                buttonOK.Enabled = true;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            var messageBoxConfirmation = MessageBox.Show("Czy potwierdzasz rezerwację?", "Potwierdzenie",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+            if (messageBoxConfirmation == DialogResult.Yes)
+            {
+                MessageBox.Show("Rezerwacja zakończona pomyślnie.");
+                this.Close();
+            }
         }
     }
 }

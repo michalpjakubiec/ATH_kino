@@ -26,14 +26,12 @@ namespace ATH_kino
         }
     
         public virtual DbSet<Aktor> Aktor { get; set; }
-        public virtual DbSet<Faktura> Faktura { get; set; }
         public virtual DbSet<Film> Film { get; set; }
         public virtual DbSet<Gatunek> Gatunek { get; set; }
         public virtual DbSet<GatunekSzczegoly> GatunekSzczegoly { get; set; }
         public virtual DbSet<Klient> Klient { get; set; }
         public virtual DbSet<Rezerwacja> Rezerwacja { get; set; }
         public virtual DbSet<Rezyser> Rezyser { get; set; }
-        public virtual DbSet<RodzajKosztow> RodzajKosztow { get; set; }
         public virtual DbSet<Rola> Rola { get; set; }
         public virtual DbSet<Sala> Sala { get; set; }
         public virtual DbSet<Scenarzysta> Scenarzysta { get; set; }

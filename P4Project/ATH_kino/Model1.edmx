@@ -13,19 +13,6 @@
           <Property Name="Imie" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="Faktura">
-          <Key>
-            <PropertyRef Name="ID_Faktura" />
-          </Key>
-          <Property Name="ID_Faktura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_RodzajKosztow" Type="int" Nullable="false" />
-          <Property Name="Koszt" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="NumerDokumentu" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="DataWystawienia" Type="datetime" Nullable="false" />
-          <Property Name="DataOtrzymania" Type="datetime" Nullable="false" />
-          <Property Name="TerminZaplaty" Type="datetime" Nullable="false" />
-          <Property Name="DataZaplaty" Type="datetime" />
-        </EntityType>
         <EntityType Name="Film">
           <Key>
             <PropertyRef Name="ID_Film" />
@@ -97,14 +84,6 @@
           <Property Name="Imie" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="RodzajKosztow">
-          <Key>
-            <PropertyRef Name="ID_RodzajKosztow" />
-          </Key>
-          <Property Name="ID_RodzajKosztow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nazwa" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Opis" Type="nvarchar" MaxLength="100" />
-        </EntityType>
         <EntityType Name="Rola">
           <Key>
             <PropertyRef Name="ID_Rola" />
@@ -140,18 +119,6 @@
           <Property Name="Data" Type="date" Nullable="false" />
           <Property Name="Godzina" Type="time" Precision="0" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Faktura_RodzajKosztow">
-          <End Role="RodzajKosztow" Type="Self.RodzajKosztow" Multiplicity="1" />
-          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RodzajKosztow">
-              <PropertyRef Name="ID_RodzajKosztow" />
-            </Principal>
-            <Dependent Role="Faktura">
-              <PropertyRef Name="ID_RodzajKosztow" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Film_Rezyser">
           <End Role="Rezyser" Type="Self.Rezyser" Multiplicity="1" />
           <End Role="Film" Type="Self.Film" Multiplicity="*" />
@@ -286,7 +253,6 @@
         </Association>
         <EntityContainer Name="ATH_kinoModelStoreContainer">
           <EntitySet Name="Aktor" EntityType="Self.Aktor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Faktura" EntityType="Self.Faktura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gatunek" EntityType="Self.Gatunek" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GatunekSzczegoly" EntityType="Self.GatunekSzczegoly" Schema="dbo" store:Type="Tables" />
@@ -294,15 +260,10 @@
           <EntitySet Name="Okladka" EntityType="Self.Okladka" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rezerwacja" EntityType="Self.Rezerwacja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rezyser" EntityType="Self.Rezyser" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RodzajKosztow" EntityType="Self.RodzajKosztow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rola" EntityType="Self.Rola" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sala" EntityType="Self.Sala" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Scenarzysta" EntityType="Self.Scenarzysta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Seans" EntityType="Self.Seans" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Faktura_RodzajKosztow" Association="Self.FK_Faktura_RodzajKosztow">
-            <End Role="RodzajKosztow" EntitySet="RodzajKosztow" />
-            <End Role="Faktura" EntitySet="Faktura" />
-          </AssociationSet>
           <AssociationSet Name="FK_Film_Rezyser" Association="Self.FK_Film_Rezyser">
             <End Role="Rezyser" EntitySet="Rezyser" />
             <End Role="Film" EntitySet="Film" />
@@ -360,20 +321,6 @@
           <Property Name="Imie" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwisko" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Rola" Relationship="Self.FK_Rola_Aktor1" FromRole="Aktor" ToRole="Rola" />
-        </EntityType>
-        <EntityType Name="Faktura">
-          <Key>
-            <PropertyRef Name="ID_Faktura" />
-          </Key>
-          <Property Name="ID_Faktura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_RodzajKosztow" Type="Int32" Nullable="false" />
-          <Property Name="Koszt" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="NumerDokumentu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DataWystawienia" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DataOtrzymania" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TerminZaplaty" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DataZaplaty" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="RodzajKosztow" Relationship="Self.FK_Faktura_RodzajKosztow" FromRole="Faktura" ToRole="RodzajKosztow" />
         </EntityType>
         <EntityType Name="Film">
           <Key>
@@ -452,15 +399,6 @@
           <Property Name="Nazwisko" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Film" Relationship="Self.FK_Film_Rezyser" FromRole="Rezyser" ToRole="Film" />
         </EntityType>
-        <EntityType Name="RodzajKosztow">
-          <Key>
-            <PropertyRef Name="ID_RodzajKosztow" />
-          </Key>
-          <Property Name="ID_RodzajKosztow" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Opis" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Faktura" Relationship="Self.FK_Faktura_RodzajKosztow" FromRole="RodzajKosztow" ToRole="Faktura" />
-        </EntityType>
         <EntityType Name="Rola">
           <Key>
             <PropertyRef Name="ID_Rola" />
@@ -512,18 +450,6 @@
             </Principal>
             <Dependent Role="Rola">
               <PropertyRef Name="ID_Aktor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Faktura_RodzajKosztow">
-          <End Role="RodzajKosztow" Type="Self.RodzajKosztow" Multiplicity="1" />
-          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RodzajKosztow">
-              <PropertyRef Name="ID_RodzajKosztow" />
-            </Principal>
-            <Dependent Role="Faktura">
-              <PropertyRef Name="ID_RodzajKosztow" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -637,14 +563,12 @@
         </Association>
         <EntityContainer Name="ATH_kinoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aktor" EntityType="Self.Aktor" />
-          <EntitySet Name="Faktura" EntityType="Self.Faktura" />
           <EntitySet Name="Film" EntityType="Self.Film" />
           <EntitySet Name="Gatunek" EntityType="Self.Gatunek" />
           <EntitySet Name="GatunekSzczegoly" EntityType="Self.GatunekSzczegoly" />
           <EntitySet Name="Klient" EntityType="Self.Klient" />
           <EntitySet Name="Rezerwacja" EntityType="Self.Rezerwacja" />
           <EntitySet Name="Rezyser" EntityType="Self.Rezyser" />
-          <EntitySet Name="RodzajKosztow" EntityType="Self.RodzajKosztow" />
           <EntitySet Name="Rola" EntityType="Self.Rola" />
           <EntitySet Name="Sala" EntityType="Self.Sala" />
           <EntitySet Name="Scenarzysta" EntityType="Self.Scenarzysta" />
@@ -652,10 +576,6 @@
           <AssociationSet Name="FK_Rola_Aktor1" Association="Self.FK_Rola_Aktor1">
             <End Role="Aktor" EntitySet="Aktor" />
             <End Role="Rola" EntitySet="Rola" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Faktura_RodzajKosztow" Association="Self.FK_Faktura_RodzajKosztow">
-            <End Role="RodzajKosztow" EntitySet="RodzajKosztow" />
-            <End Role="Faktura" EntitySet="Faktura" />
           </AssociationSet>
           <AssociationSet Name="FK_Film_Rezyser" Association="Self.FK_Film_Rezyser">
             <End Role="Rezyser" EntitySet="Rezyser" />
@@ -734,20 +654,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Faktura">
-            <EntityTypeMapping TypeName="ATH_kinoModel.Faktura">
-              <MappingFragment StoreEntitySet="Faktura">
-                <ScalarProperty Name="ID_Faktura" ColumnName="ID_Faktura" />
-                <ScalarProperty Name="ID_RodzajKosztow" ColumnName="ID_RodzajKosztow" />
-                <ScalarProperty Name="Koszt" ColumnName="Koszt" />
-                <ScalarProperty Name="NumerDokumentu" ColumnName="NumerDokumentu" />
-                <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
-                <ScalarProperty Name="DataOtrzymania" ColumnName="DataOtrzymania" />
-                <ScalarProperty Name="TerminZaplaty" ColumnName="TerminZaplaty" />
-                <ScalarProperty Name="DataZaplaty" ColumnName="DataZaplaty" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Film">
             <EntityTypeMapping TypeName="ATH_kinoModel.Film">
               <MappingFragment StoreEntitySet="Film">
@@ -815,15 +721,6 @@
                 <ScalarProperty Name="ID_Rezyser" ColumnName="ID_Rezyser" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RodzajKosztow">
-            <EntityTypeMapping TypeName="ATH_kinoModel.RodzajKosztow">
-              <MappingFragment StoreEntitySet="RodzajKosztow">
-                <ScalarProperty Name="ID_RodzajKosztow" ColumnName="ID_RodzajKosztow" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

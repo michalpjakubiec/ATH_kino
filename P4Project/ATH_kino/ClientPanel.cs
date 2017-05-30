@@ -15,10 +15,10 @@ namespace ATH_kino
 {
     public partial class ClientPanel : Form
     {
-        public string filmName { get; set; }
-        public DateTime showtimeDate { get; set; }
-        public DateTime showtimeTime { get; set; }
-        public int roomNumber { get; set; }
+        //public string FilmName { get; set; }
+        //public DateTime ShowtimeDate { get; set; }
+        //public TimeSpan ShowtimeTime { get; set; }
+        //public int RoomNumber { get; set; }
 
         private void ClearClientPanel()
         {
@@ -170,7 +170,7 @@ namespace ATH_kino
 
                 foreach (var time in timeInfo)
                 {
-                    comboBoxTimeSelection.Items.Add(time);
+                    comboBoxTimeSelection.Items.Add(time.ToString(@"hh\:mm"));
                 }
             }
         }
@@ -189,4 +189,4 @@ namespace ATH_kino
             formRoomPreview.ShowDialog();
         }
     }
-}
+}      
