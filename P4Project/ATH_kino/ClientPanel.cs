@@ -15,15 +15,20 @@ namespace ATH_kino
 {
     public partial class ClientPanel : Form
     {
+        public string filmName { get; set; }
+        public DateTime showtimeDate { get; set; }
+        public DateTime showtimeTime { get; set; }
+        public int roomNumber { get; set; }
+
         private void ClearClientPanel()
         {
-            labelFilmName.Text = null;
-            labelGenre.Text = null;
-            labelDirector.Text = null;
-            labelWriter.Text = null;
-            labelCountry.Text = null;
-            labelPremiere.Text = null;
-            labelActor.Text = null;
+            labelFilmName.Text = string.Empty;
+            labelGenre.Text = string.Empty;
+            labelDirector.Text = string.Empty;
+            labelWriter.Text = string.Empty;
+            labelCountry.Text = string.Empty;
+            labelPremiere.Text = string.Empty;
+            labelActor.Text = string.Empty;
             pictureBoxCover.Image = null;
 
             comboBoxDateSelection.Items.Clear();
@@ -34,6 +39,12 @@ namespace ATH_kino
 
             buttonRoomPreview.Enabled = false;
         }
+
+        public ClientPanel()
+        {
+            InitializeComponent();
+        }
+
         private void ClientPanel_Load(object sender, EventArgs e)
         {
             using (var ctx = new ATH_kinoEntities())
@@ -43,11 +54,6 @@ namespace ATH_kino
                     comboBoxFilmsList.Items.Add($"{name.Nazwa}");
                 }
             }
-        }
-
-        public ClientPanel()
-        {
-            InitializeComponent();
         }
 
         private void comboBoxFilmsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,7 +94,7 @@ namespace ATH_kino
                                  select new
                                  {
                                      GenreName = g.Nazwa
-                                 }).ToArray();
+                                 }).ToList();
 
                 if (selectedFilm == "")
                 {
@@ -100,7 +106,7 @@ namespace ATH_kino
                     labelDirector.Text = filmInfo.Director;
                     labelWriter.Text = filmInfo.Writer;
                     labelCountry.Text = filmInfo.Country;
-                    labelPremiere.Text = filmInfo.Premiere;
+                    labelPremiere.Text = DateTime.Parse(filmInfo.Premiere).ToString("dd MMMM yyyy");
 
                     labelGenre.Text = null;
                     foreach (var name in genreInfo)
@@ -149,9 +155,11 @@ namespace ATH_kino
         {
             comboBoxTimeSelection.Items.Clear();
             comboBoxTimeSelection.Enabled = true;
+            buttonRoomPreview.Enabled = false;
 
             string selectedFilm = comboBoxFilmsList.SelectedItem.ToString();
             DateTime selectedDate = DateTime.Parse(comboBoxDateSelection.SelectedItem.ToString());
+
             using (var ctx = new ATH_kinoEntities())
             {
                 var timeInfo = (from f in ctx.Film
@@ -162,8 +170,7 @@ namespace ATH_kino
 
                 foreach (var time in timeInfo)
                 {
-                    DateTime timeParsed = DateTime.Parse(time.ToString());
-                    comboBoxTimeSelection.Items.Add(timeParsed);
+                    comboBoxTimeSelection.Items.Add(time);
                 }
             }
         }
@@ -176,8 +183,9 @@ namespace ATH_kino
 
         private void buttonRoomPreview_Click(object sender, EventArgs e)
         {
-            var formRoomPreview = new RoomPreview();
-
+            var formRoomPreview = new RoomPreview(labelFilmName.Text,
+                                                  DateTime.Parse(comboBoxDateSelection.Text),
+                                                  TimeSpan.Parse(comboBoxTimeSelection.Text));
             formRoomPreview.ShowDialog();
         }
     }

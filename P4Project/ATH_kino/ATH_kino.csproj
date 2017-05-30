@@ -47,6 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -137,12 +138,6 @@
     <Compile Include="Seans.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShowtimePanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ShowtimePanel.Designer.cs">
-      <DependentUpon>ShowtimePanel.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ClientPanel.resx">
       <DependentUpon>ClientPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,9 +156,6 @@
     </Compile>
     <EmbeddedResource Include="RoomPreview.resx">
       <DependentUpon>RoomPreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ShowtimePanel.resx">
-      <DependentUpon>ShowtimePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
