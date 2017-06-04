@@ -38,11 +38,11 @@
             this.groupBoxFilmInfo = new System.Windows.Forms.GroupBox();
             this.labelFilmName = new System.Windows.Forms.Label();
             this.labelFilmNameSolid = new System.Windows.Forms.Label();
+            this.labelRoomNumberSolid = new System.Windows.Forms.Label();
             this.groupBoxSeatList = new System.Windows.Forms.GroupBox();
             this.labelScreen = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.labelRoomNumberSolid = new System.Windows.Forms.Label();
             this.groupBoxFilmInfo.SuspendLayout();
             this.groupBoxSeatList.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(71, 56);
+            this.labelDate.Location = new System.Drawing.Point(71, 38);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(52, 13);
             this.labelDate.TabIndex = 3;
@@ -85,7 +85,7 @@
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(71, 38);
+            this.labelTime.Location = new System.Drawing.Point(71, 56);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(52, 13);
             this.labelTime.TabIndex = 3;
@@ -94,7 +94,7 @@
             // labelDateSolid
             // 
             this.labelDateSolid.AutoSize = true;
-            this.labelDateSolid.Location = new System.Drawing.Point(6, 56);
+            this.labelDateSolid.Location = new System.Drawing.Point(6, 38);
             this.labelDateSolid.Name = "labelDateSolid";
             this.labelDateSolid.Size = new System.Drawing.Size(33, 13);
             this.labelDateSolid.TabIndex = 3;
@@ -103,7 +103,7 @@
             // labelTimeSolid
             // 
             this.labelTimeSolid.AutoSize = true;
-            this.labelTimeSolid.Location = new System.Drawing.Point(6, 38);
+            this.labelTimeSolid.Location = new System.Drawing.Point(6, 56);
             this.labelTimeSolid.Name = "labelTimeSolid";
             this.labelTimeSolid.Size = new System.Drawing.Size(49, 13);
             this.labelTimeSolid.TabIndex = 3;
@@ -147,6 +147,15 @@
             this.labelFilmNameSolid.TabIndex = 3;
             this.labelFilmNameSolid.Text = "Tytuł filmu:";
             // 
+            // labelRoomNumberSolid
+            // 
+            this.labelRoomNumberSolid.AutoSize = true;
+            this.labelRoomNumberSolid.Location = new System.Drawing.Point(6, 74);
+            this.labelRoomNumberSolid.Name = "labelRoomNumberSolid";
+            this.labelRoomNumberSolid.Size = new System.Drawing.Size(39, 13);
+            this.labelRoomNumberSolid.TabIndex = 3;
+            this.labelRoomNumberSolid.Text = "Nr sali:";
+            // 
             // groupBoxSeatList
             // 
             this.groupBoxSeatList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -166,9 +175,10 @@
             // 
             this.labelScreen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelScreen.Location = new System.Drawing.Point(10, 16);
+            this.labelScreen.AutoSize = true;
+            this.labelScreen.Location = new System.Drawing.Point(88, 16);
             this.labelScreen.Name = "labelScreen";
-            this.labelScreen.Size = new System.Drawing.Size(211, 13);
+            this.labelScreen.Size = new System.Drawing.Size(35, 13);
             this.labelScreen.TabIndex = 2;
             this.labelScreen.Text = "Ekran";
             this.labelScreen.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -201,15 +211,6 @@
             this.buttonCancel.Text = "Wstecz";
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // labelRoomNumberSolid
-            // 
-            this.labelRoomNumberSolid.AutoSize = true;
-            this.labelRoomNumberSolid.Location = new System.Drawing.Point(6, 74);
-            this.labelRoomNumberSolid.Name = "labelRoomNumberSolid";
-            this.labelRoomNumberSolid.Size = new System.Drawing.Size(39, 13);
-            this.labelRoomNumberSolid.TabIndex = 3;
-            this.labelRoomNumberSolid.Text = "Nr sali:";
             // 
             // RoomPreview
             // 

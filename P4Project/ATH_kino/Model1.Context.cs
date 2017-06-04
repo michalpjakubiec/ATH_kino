@@ -18,8 +18,9 @@ namespace ATH_kino
         public ATH_kinoEntities()
             : base("name=ATH_kinoEntities")
         {
+            Database.Log = Console.Write;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

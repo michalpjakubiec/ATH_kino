@@ -70,8 +70,8 @@
           <Property Name="ID_Klient" Type="int" Nullable="false" />
           <Property Name="ID_Seans" Type="int" Nullable="false" />
           <Property Name="Miejsce" Type="int" Nullable="false" />
-          <Property Name="DataRezerwacji" Type="datetime" Nullable="false" />
-          <Property Name="CenaBiletu" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="DataRezerwacji" Type="datetime" />
+          <Property Name="CenaBiletu" Type="decimal" Precision="5" Scale="2" />
           <Property Name="ZnizkaProcent" Type="float" />
           <Property Name="ZnizkaOpis" Type="nvarchar" MaxLength="50" />
           <Property Name="ZnizkaNrDokumentu" Type="nvarchar" MaxLength="20" />
@@ -113,7 +113,7 @@
           <Key>
             <PropertyRef Name="ID_Seans" />
           </Key>
-          <Property Name="ID_Seans" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Seans" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_Sala" Type="int" Nullable="false" />
           <Property Name="ID_Film" Type="int" Nullable="false" />
           <Property Name="Data" Type="date" Nullable="false" />
@@ -382,8 +382,8 @@
           <Property Name="ID_Klient" Type="Int32" Nullable="false" />
           <Property Name="ID_Seans" Type="Int32" Nullable="false" />
           <Property Name="Miejsce" Type="Int32" Nullable="false" />
-          <Property Name="DataRezerwacji" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CenaBiletu" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="DataRezerwacji" Type="DateTime" Precision="3" />
+          <Property Name="CenaBiletu" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="ZnizkaProcent" Type="Double" />
           <Property Name="ZnizkaOpis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ZnizkaNrDokumentu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />

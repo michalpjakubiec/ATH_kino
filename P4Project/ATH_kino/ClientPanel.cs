@@ -15,11 +15,6 @@ namespace ATH_kino
 {
     public partial class ClientPanel : Form
     {
-        //public string FilmName { get; set; }
-        //public DateTime ShowtimeDate { get; set; }
-        //public TimeSpan ShowtimeTime { get; set; }
-        //public int RoomNumber { get; set; }
-
         private void ClearClientPanel()
         {
             labelFilmName.Text = string.Empty;
@@ -164,14 +159,14 @@ namespace ATH_kino
             {
                 var timeInfo = (from f in ctx.Film
                                 join s in ctx.Seans on f.ID_Film equals s.ID_Film
-                                where (s.Data == selectedDate &&
-                                       f.Nazwa == selectedFilm)
+                                where (f.Nazwa == selectedFilm &&
+                                       s.Data == selectedDate)
                                 select s.Godzina);
 
                 foreach (var time in timeInfo)
                 {
                     comboBoxTimeSelection.Items.Add(time.ToString(@"hh\:mm"));
-                }
+                }                
             }
         }
 
@@ -183,10 +178,11 @@ namespace ATH_kino
 
         private void buttonRoomPreview_Click(object sender, EventArgs e)
         {
+
             var formRoomPreview = new RoomPreview(labelFilmName.Text,
                                                   DateTime.Parse(comboBoxDateSelection.Text),
                                                   TimeSpan.Parse(comboBoxTimeSelection.Text));
             formRoomPreview.ShowDialog();
         }
     }
-}      
+}

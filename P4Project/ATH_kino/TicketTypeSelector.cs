@@ -10,24 +10,25 @@ using System.Windows.Forms;
 
 namespace ATH_kino
 {
-    public partial class TicketTypeSelector : Form
+    public partial class TicketTypeSelectWindow : Form
     {
-        public int returnChoice { get; set; }
+        public int ChoosedSeatType { get; set; }
 
-        public TicketTypeSelector()
+        public TicketTypeSelectWindow()
         {
             InitializeComponent();
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (radioButtonNormal.Checked == true)
-                returnChoice = 1;
-            if (radioButtonSchool.Checked == true)
-                returnChoice = 2;
-            if (radioButtonStudent.Checked == true)
-                returnChoice = 3;
-            if (radioButtonSenior.Checked == true)
-                returnChoice = 4;
+            if (radioButtonNormal.Checked)
+                ChoosedSeatType = 1;
+            if (radioButtonSchool.Checked)
+                ChoosedSeatType = 2;
+            if (radioButtonStudent.Checked)
+                ChoosedSeatType = 3;
+            if (radioButtonSenior.Checked)
+                ChoosedSeatType = 4;
 
             this.Close();
         }

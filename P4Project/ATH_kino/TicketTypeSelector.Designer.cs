@@ -1,6 +1,6 @@
 ﻿namespace ATH_kino
 {
-    partial class TicketTypeSelector
+    partial class TicketTypeSelectWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketTypeSelector));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketTypeSelectWindow));
             this.groupBoxTicketSelectionDescription = new System.Windows.Forms.GroupBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.radioButtonSenior = new System.Windows.Forms.RadioButton();
-            this.radioButtonStudent = new System.Windows.Forms.RadioButton();
-            this.radioButtonSchool = new System.Windows.Forms.RadioButton();
             this.radioButtonNormal = new System.Windows.Forms.RadioButton();
+            this.radioButtonSchool = new System.Windows.Forms.RadioButton();
+            this.radioButtonStudent = new System.Windows.Forms.RadioButton();
+            this.radioButtonSenior = new System.Windows.Forms.RadioButton();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxTicketSelectionDescription.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,18 +57,49 @@
             this.groupBoxTicketSelectionDescription.TabStop = false;
             this.groupBoxTicketSelectionDescription.Text = "Rodzaj biletu";
             // 
-            // buttonCancel
+            // radioButtonNormal
             // 
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonCancel.Location = new System.Drawing.Point(68, 117);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(55, 34);
-            this.buttonCancel.TabIndex = 5;
-            this.buttonCancel.Text = "Anuluj";
-            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.radioButtonNormal.AutoSize = true;
+            this.radioButtonNormal.Location = new System.Drawing.Point(6, 19);
+            this.radioButtonNormal.Name = "radioButtonNormal";
+            this.radioButtonNormal.Size = new System.Drawing.Size(69, 17);
+            this.radioButtonNormal.TabIndex = 0;
+            this.radioButtonNormal.TabStop = true;
+            this.radioButtonNormal.Text = "Normalny";
+            this.radioButtonNormal.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSchool
+            // 
+            this.radioButtonSchool.AutoSize = true;
+            this.radioButtonSchool.Location = new System.Drawing.Point(6, 42);
+            this.radioButtonSchool.Name = "radioButtonSchool";
+            this.radioButtonSchool.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonSchool.TabIndex = 1;
+            this.radioButtonSchool.TabStop = true;
+            this.radioButtonSchool.Text = "Szkolny";
+            this.radioButtonSchool.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonStudent
+            // 
+            this.radioButtonStudent.AutoSize = true;
+            this.radioButtonStudent.Location = new System.Drawing.Point(6, 65);
+            this.radioButtonStudent.Name = "radioButtonStudent";
+            this.radioButtonStudent.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonStudent.TabIndex = 2;
+            this.radioButtonStudent.TabStop = true;
+            this.radioButtonStudent.Text = "Studencki";
+            this.radioButtonStudent.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSenior
+            // 
+            this.radioButtonSenior.AutoSize = true;
+            this.radioButtonSenior.Location = new System.Drawing.Point(6, 88);
+            this.radioButtonSenior.Name = "radioButtonSenior";
+            this.radioButtonSenior.Size = new System.Drawing.Size(68, 17);
+            this.radioButtonSenior.TabIndex = 3;
+            this.radioButtonSenior.TabStop = true;
+            this.radioButtonSenior.Text = "Seniorski";
+            this.radioButtonSenior.UseVisualStyleBackColor = true;
             // 
             // buttonOK
             // 
@@ -83,51 +114,20 @@
             this.buttonOK.UseVisualStyleBackColor = false;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // radioButtonSenior
+            // buttonCancel
             // 
-            this.radioButtonSenior.AutoSize = true;
-            this.radioButtonSenior.Location = new System.Drawing.Point(6, 88);
-            this.radioButtonSenior.Name = "radioButtonSenior";
-            this.radioButtonSenior.Size = new System.Drawing.Size(68, 17);
-            this.radioButtonSenior.TabIndex = 3;
-            this.radioButtonSenior.TabStop = true;
-            this.radioButtonSenior.Text = "Seniorski";
-            this.radioButtonSenior.UseVisualStyleBackColor = true;
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonCancel.Location = new System.Drawing.Point(68, 117);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(55, 34);
+            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.Text = "Anuluj";
+            this.buttonCancel.UseVisualStyleBackColor = false;
             // 
-            // radioButtonStudent
-            // 
-            this.radioButtonStudent.AutoSize = true;
-            this.radioButtonStudent.Location = new System.Drawing.Point(6, 65);
-            this.radioButtonStudent.Name = "radioButtonStudent";
-            this.radioButtonStudent.Size = new System.Drawing.Size(73, 17);
-            this.radioButtonStudent.TabIndex = 2;
-            this.radioButtonStudent.TabStop = true;
-            this.radioButtonStudent.Text = "Studencki";
-            this.radioButtonStudent.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonSchool
-            // 
-            this.radioButtonSchool.AutoSize = true;
-            this.radioButtonSchool.Location = new System.Drawing.Point(6, 42);
-            this.radioButtonSchool.Name = "radioButtonSchool";
-            this.radioButtonSchool.Size = new System.Drawing.Size(62, 17);
-            this.radioButtonSchool.TabIndex = 1;
-            this.radioButtonSchool.TabStop = true;
-            this.radioButtonSchool.Text = "Szkolny";
-            this.radioButtonSchool.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonNormal
-            // 
-            this.radioButtonNormal.AutoSize = true;
-            this.radioButtonNormal.Location = new System.Drawing.Point(6, 19);
-            this.radioButtonNormal.Name = "radioButtonNormal";
-            this.radioButtonNormal.Size = new System.Drawing.Size(69, 17);
-            this.radioButtonNormal.TabIndex = 0;
-            this.radioButtonNormal.TabStop = true;
-            this.radioButtonNormal.Text = "Normalny";
-            this.radioButtonNormal.UseVisualStyleBackColor = true;
-            // 
-            // TicketTypeSelector
+            // TicketTypeSelectWindow
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,11 +138,11 @@
             this.Controls.Add(this.groupBoxTicketSelectionDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "TicketTypeSelector";
+            this.Name = "TicketTypeSelectWindow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "TicketTypeSelector";
+            this.Text = "TicketTypeSelectWindow";
             this.groupBoxTicketSelectionDescription.ResumeLayout(false);
             this.groupBoxTicketSelectionDescription.PerformLayout();
             this.ResumeLayout(false);

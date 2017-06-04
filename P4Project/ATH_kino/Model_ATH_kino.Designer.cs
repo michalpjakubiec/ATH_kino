@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\MJ\Source\Repos\P4Project_\P4Project\ATH_kino\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\MJ\Source\Repos\P4Project_\P4Project\ATH_kino\Model_ATH_kino.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
