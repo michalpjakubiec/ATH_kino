@@ -1,51 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ATH_kino
 {
     public partial class RoomPreview : Form
     {
+        public AthQuery Q { get; set; }
         public List<Button> SeatList { get; set; } = new List<Button>();
-        public int ShowtimeId { get; set; }
         public int Counter { get; set; }
         public int ReturnedChoice { get; set; }
         public TicketTypeSelectWindow FormTicketTypeSelectWindow { get; set; } = new TicketTypeSelectWindow();
-        private void FillLabels(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
-        {
-            using (var ctx = new ATH_kinoEntities())
-            {
-                var roomInfo = (from f in ctx.Film
-                                join s in ctx.Seans on f.ID_Film equals s.ID_Film
-                                join r in ctx.Sala on s.ID_Sala equals r.ID_Sala
-                                where (f.Nazwa == filmName &&
-                                       s.Data == showtimeDate &&
-                                       s.Godzina == showtimeTime)
-                                select new
-                                {
-                                    roomNumber = s.ID_Sala
-                                }).FirstOrDefault();
 
-                labelFilmName.Text = filmName;
-                labelDate.Text = showtimeDate.ToString("dd.MM.yyyy");
-                labelTime.Text = showtimeTime.ToString(@"hh\:mm");
-                labelRoomNumber.Text = roomInfo.roomNumber.ToString();
-            }
+        public RoomPreview(AthQuery q)
+        {
+            InitializeComponent();
+            Q = q;
+            Q.GetCurrentShowtimeDetails();
+            FillLabels();
+            CreateDynamicRoomPreview();
+            labelScreen.Left = this.Height / 2 - labelScreen.Height;
         }
 
-        private void CreateDynamicRoomPreview(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
+        private void FillLabels()
+        {
+            labelFilmName.Text = Q.CurrentFilmTitle;
+            labelDate.Text = Q.CurrentFilmCurrentDate.ToString("dd.MM.yyyy");
+            labelTime.Text = Q.CurrentFilmCurrentTime.ToString(@"hh\:mm");
+            labelRoomNumber.Text = Q.RoomNumber.ToString();
+        }
+
+        private void CreateDynamicRoomPreview()
         {
             const int column = 10;
             const int row = 5;
 
-            tableLayoutPanelRoomPreview.ColumnCount = 10;
-            tableLayoutPanelRoomPreview.RowCount = 5;
+            tableLayoutPanelRoomPreview.ColumnCount = column;
+            tableLayoutPanelRoomPreview.RowCount = row;
 
             tableLayoutPanelRoomPreview.ColumnStyles.Clear();
             tableLayoutPanelRoomPreview.RowStyles.Clear();
@@ -57,27 +51,6 @@ namespace ATH_kino
 
             using (var ctx = new ATH_kinoEntities())
             {
-                var seatInfo = (from f in ctx.Film
-                                join s in ctx.Seans on f.ID_Film equals s.ID_Film
-                                join re in ctx.Rezerwacja on s.ID_Seans equals re.ID_Seans
-                                where (f.Nazwa == filmName &&
-                                       s.Data == showtimeDate &&
-                                       s.Godzina == showtimeTime)
-                                select re.Miejsce);
-
-                var showtimeInfo = (from f in ctx.Film
-                                    join s in ctx.Seans on f.ID_Film equals s.ID_Film
-                                    join re in ctx.Rezerwacja on s.ID_Seans equals re.ID_Seans
-                                    where (f.Nazwa == filmName &&
-                                           s.Data == showtimeDate &&
-                                           s.Godzina == showtimeTime)
-                                    select s.ID_Seans);
-
-                foreach (var id in showtimeInfo)
-                {
-                    ShowtimeId = id;
-                }
-
                 for (int i = 0; i < column * row; i++)
                 {
                     var seat = new Button();
@@ -92,7 +65,7 @@ namespace ATH_kino
                     tableLayoutPanelRoomPreview.Controls.Add(seat);
                     SeatList.Add(seat);
 
-                    foreach (var item in seatInfo)
+                    foreach (var item in Q.ShowtimeSeatList)
                     {
                         if (seat.Name == item.ToString())
                         {
@@ -103,13 +76,6 @@ namespace ATH_kino
                     }
                 }
             }
-        }
-        public RoomPreview(string filmName, DateTime showtimeDate, TimeSpan showtimeTime)
-        {
-            InitializeComponent();
-            FillLabels(filmName, showtimeDate, showtimeTime);
-            CreateDynamicRoomPreview(filmName, showtimeDate, showtimeTime);
-            labelScreen.Left = this.Height / 2 - labelScreen.Height;
         }
 
         void seat_Click(object sender, EventArgs e)
@@ -179,7 +145,6 @@ namespace ATH_kino
             }
             messageBoxSb.AppendLine("");
             messageBoxSb.AppendLine("Czy potwierdzasz rezerwację?");
-            messageBoxSb.ToString();
 
             var messageBoxConfirmation = MessageBox.Show($"{messageBoxSb}", "Potwierdzenie rezerwacji",
                                                          MessageBoxButtons.YesNo,
@@ -190,24 +155,19 @@ namespace ATH_kino
                 {
                     if (seat.BackColor == Color.Orange)
                     {
-                        using (var ctx = new ATH_kinoEntities())
+                        Rezerwacja newReservation = new Rezerwacja()
                         {
-                            Rezerwacja newReservation = new Rezerwacja()
-                            {
-                                //ID_Rezerwacja = 501,
-                                ID_Klient = 1,
-                                ID_Seans = ShowtimeId,
-                                Miejsce = int.Parse(seat.Text),
-                                DataRezerwacji = DateTime.Now,
-                                //CenaBiletu = 0,
-                                //ZnizkaProcent = 0,
-                                //ZnizkaOpis = string.Empty,
-                                //ZnizkaNrDokumentu = string.Empty
-                            };
-
-                            ctx.Rezerwacja.Add(newReservation);
-                            ctx.SaveChanges();
-                        }
+                            ID_Klient = 1,
+                            ID_Seans = Q.ShowtimeId,
+                            Miejsce = int.Parse(seat.Text),
+                            DataRezerwacji = DateTime.Now,
+                            //CenaBiletu = 0,
+                            //ZnizkaProcent = 0,
+                            //ZnizkaOpis = string.Empty,
+                            //ZnizkaNrDokumentu = string.Empty
+                        };
+                        Q.Ctx.Rezerwacja.Add(newReservation);
+                        Q.Ctx.SaveChanges();
                     }
                 }
 

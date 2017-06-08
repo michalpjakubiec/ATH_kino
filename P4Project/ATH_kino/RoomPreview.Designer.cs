@@ -61,7 +61,7 @@
             this.tableLayoutPanelRoomPreview.RowCount = 2;
             this.tableLayoutPanelRoomPreview.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelRoomPreview.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelRoomPreview.Size = new System.Drawing.Size(212, 186);
+            this.tableLayoutPanelRoomPreview.Size = new System.Drawing.Size(211, 198);
             this.tableLayoutPanelRoomPreview.TabIndex = 1;
             // 
             // labelRoomNumber
@@ -166,7 +166,7 @@
             this.groupBoxSeatList.Controls.Add(this.tableLayoutPanelRoomPreview);
             this.groupBoxSeatList.Location = new System.Drawing.Point(12, 121);
             this.groupBoxSeatList.Name = "groupBoxSeatList";
-            this.groupBoxSeatList.Size = new System.Drawing.Size(232, 229);
+            this.groupBoxSeatList.Size = new System.Drawing.Size(232, 242);
             this.groupBoxSeatList.TabIndex = 5;
             this.groupBoxSeatList.TabStop = false;
             this.groupBoxSeatList.Text = "Podgląd sali";
